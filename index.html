@@ -13,7 +13,7 @@
 <body>
 
 <div id="app">
-    <div class="bg">
+    <div class="bg" v-bind:id="bg1">
         hello world!
         {{msg}}
     </div>
@@ -21,13 +21,28 @@
         hello world!
         {{msg}}
     </div>
+    {{ (count + 1)*10 }}
+    <div v-html="template">
+        {{template}}
+    </div>
+    <a :href="url">百度一下</a>
+    <button type="button" @click="submit()">计数器</button>
 </div>
-
+<!--v:on可以写作@,v:bing可以写作:-->
 <script>
     new Vue({
         el: '#app',
         data: {
-            msg: 'ferre,u know'
+            bg1: 'app-bind',
+            msg: 'ferre,u know',
+            count: 0,
+            url: 'https://www.baidu.com',
+            template: '<div>输出HTML</div>'
+        },
+        methods: {
+            submit: function(){
+                this.count ++
+            }
         }
     })
 </script>
