@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.9/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <div v-for="item in listf">名称：{{item.name}} 年龄：{{item.age}}
+        <div v-show="item.age>35"
+             :class="['active', 'add', 'more', {'another': item.age > 35}]"
+             :style="styleMsg">
+            {{item.name}}
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'vue pro2',
+            styleMsg: {
+                color: 'red',
+                textShadow: '0 0 5px #0000ff'
+            },
+            listf: [{
+                name: 'xiaowang',
+                age: '30'
+            },{
+                name: 'lihua',
+                age: '40'
+            }]
+        },
+
+    })
+</script>
+</body>
+</html>

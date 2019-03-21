@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.9/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="count > 0">
+        count大于0为：{{count}}
+    </div>
+    <div v-else-if="count < 0">
+        count小于0为：{{count}}
+    </div>
+    <div v-else="count == 0">
+        count等于0为：{{count}}
+    </div>
+    <div v-show="count == -1">show:{{count}}</div>
+    {{msg}}
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'vue pro2',
+            count: 1
+        },
+
+    })
+</script>
+</body>
+</html>

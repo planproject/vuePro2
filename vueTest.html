@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .bg{
-            color: red;
-        }
-    </style>
     <script src="https://cdn.bootcss.com/vue/2.6.9/vue.min.js"></script>
 </head>
 <body>
-
-<!--v:on可以写作@,v:bing可以写作:-->
+<div id="app">
+    {{msg}}
+    <p>
+        {{msg1}}
+    </p>
+</div>
+<!--计算属性：computed-->
+<!--侦听器：watch-->
+<!--使用场景watch：异步场景,通常是一个变量或数组，computed：数据联动,多个实例内的变量-->
 <script>
-    new Vue({
+    var app = new Vue({
         el: '#app',
         data: {
+            msg: 'vue pro',
+            another: 'another '
+        },
+        watch: {    //监听,原值和新值两个参数
+            msg :function (newval, oldval) {
+                console.log(newval + oldval)
+            }
 
         },
+        computed: { //能监听本实例任何值
+            msg1: function () {
+                return 'computed: ' + this.msg + ',' + this.another
+            }
+
+        }
 
     })
 </script>
